@@ -1,16 +1,11 @@
-# flutter_shop
+# Clean Architecture + Bloc + Get_It
 
-A new Flutter project.
+1.Package by Feature
 
-## Getting Started
+2.Bloc의 Event, State에 생성 간략화 : freezed를 이용하여 Sealed class 생성
 
-This project is a starting point for a Flutter application.
+3.DI는 GetIt 
 
-A few resources to get you started if this is your first Flutter project:
+3가지 조합으로 도서(검색,장바구니)구매 샘플 작성
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+KaKaoAPI를 통해 도서 정보를 가져옴 (Mock으로 처리)
