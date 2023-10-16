@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_shop/app/app_bloc.dart';
+import 'package:flutter_shop/app_router.dart';
 import 'package:flutter_shop/core/utils/log/log.dart';
 import 'package:flutter_shop/feature/main/presentation/widgets/brightness_button.dart';
 import 'package:flutter_shop/feature/main/presentation/widgets/color_seed_button.dart';
-import 'package:flutter_shop/app_router.dart';
 import 'package:go_router/go_router.dart';
 
 class MainPage extends StatelessWidget {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-const kakaoApiKey = '';
-
 enum ColorSeed {
   indigo('Indigo', Colors.indigo),
   blue('Blue', Colors.blue),

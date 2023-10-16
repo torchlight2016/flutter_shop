@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_shop/constants.dart';
+import 'package:flutter_shop/core/utils/log/log.dart';
 import 'package:flutter_shop/feature/book/data/datasources/book_remote_data_source.dart';
 import 'package:flutter_shop/feature/book/data/datasources/remote_client/book_client.dart';
 import 'package:flutter_shop/feature/book/data/repositories/book_repository_impl.dart';
@@ -27,7 +28,7 @@ import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 final sl = GetIt.instance;
 
 abstract class ServiceLocator {
-  static void init() {
+  static void init(String? kakaoApiKey) {
     //dio
     sl.registerFactory(() {
       final dio = Dio();
@@ -76,10 +77,14 @@ abstract class ServiceLocator {
           removeBookFromCartUseCase: sl(),
         ));
 
-    _override();
+    final isMock = (kakaoApiKey == null);
+    Log.i('overrideMock: $isMock');
+    if (isMock) {
+      _overrideMock();
+    }
   }
 
-  static void _override() {
+  static void _overrideMock() {
     if (sl.isRegistered<BookRemoteDataSource>()) {
       sl.unregister<BookRemoteDataSource>();
     }
