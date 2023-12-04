@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_shop/constants.dart';
 import 'package:flutter_shop/core/utils/log/log.dart';
 import 'package:flutter_shop/feature/book/data/datasources/book_remote_data_source.dart';
 import 'package:flutter_shop/feature/book/data/datasources/remote_client/book_client.dart';
@@ -15,7 +14,6 @@ import 'package:flutter_shop/feature/cart/domain/usecases/get_books_from_cart_us
 import 'package:flutter_shop/feature/cart/domain/usecases/remove_book_from_cart_usecase.dart';
 import 'package:flutter_shop/feature/cart/presentation/blocs/cart_bloc.dart';
 import 'package:flutter_shop/feature/home/presentation/blocs/home_bloc.dart';
-import 'package:flutter_shop/feature/main/presentation/blocs/main_bloc.dart';
 import 'package:flutter_shop/feature/search/data/datasources/book_keywords_local_data_source.dart';
 import 'package:flutter_shop/feature/search/data/repositories/book_keyword_repository_impl.dart';
 import 'package:flutter_shop/feature/search/domain/repositories/book_keywords_repository.dart';
@@ -63,7 +61,6 @@ abstract class ServiceLocator {
     sl.registerLazySingleton(
         () => RemoveBookFromCartUseCase(cartRepository: sl()));
     //blocs
-    sl.registerFactory(() => MainBloc());
     sl.registerFactory(() => HomeBloc(searchBooksUseCase: sl()));
     sl.registerFactory(() => SearchBloc(
           searchBooksUseCase: sl(),
