@@ -19,8 +19,7 @@ class BookListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          sl<BookBloc>()..add(BookEvent.searchBooks(name: keyword)),
+      create: (context) => sl<BookBloc>()..add(SearchBooks(name: keyword)),
       child: Scaffold(
           appBar: AppBar(
             titleSpacing: 0,
@@ -36,16 +35,15 @@ class BookListPage extends StatelessWidget {
           ),
           body: BlocBuilder<BookBloc, StateValue<SearchedBooks>>(
             builder: (context, state) {
-              return state.when(
-                  initial: () => const SizedBox.shrink(),
-                  loading: () =>
-                      const Center(child: CircularProgressIndicator()),
-                  success: (data) {
-                    return BookListView(searchedBooks: data);
-                  },
-                  failure: (e, st) {
-                    return Text('error=$e');
-                  });
+              return switch (state) {
+                InitialState() => const SizedBox.shrink(),
+                LoadingState() => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                LoadedState<SearchedBooks>() =>
+                  BookListView(searchedBooks: state.data),
+                ErrorState<SearchedBooks>() => Text('error=${state.error}'),
+              };
             },
           )),
     );

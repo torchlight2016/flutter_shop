@@ -69,7 +69,7 @@ class BookDetailPage extends StatelessWidget {
                           onPressed: () {
                             context
                                 .read<CartBloc>()
-                                .add(CartEvent.addBookToCart(book));
+                                .add(AddBookToCart(book: book));
                             // LoadingIndicator.instance.show();
                             Toast.show(context, '장바구니에 추가되었습니다.');
                           },

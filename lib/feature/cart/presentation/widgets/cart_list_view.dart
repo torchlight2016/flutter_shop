@@ -25,7 +25,7 @@ class CartListView extends StatelessWidget {
                   onPressed: () {
                     context
                         .read<CartBloc>()
-                        .add(CartEvent.removeBookFromCart(books[index]));
+                        .add(RemoveBookFromCart(book: (books[index])));
                   },
                 ),
               )

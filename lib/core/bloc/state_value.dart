@@ -1,27 +1,35 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
 
-part 'state_value.freezed.dart';
+sealed class StateValue<T> extends Equatable {}
 
-@freezed
-class StateValue<T> with _$StateValue<T> {
-  const StateValue._();
+class InitialState<T> extends StateValue<T> {
+  @override
+  List<Object?> get props => [];
+}
 
-  const factory StateValue.initial() = _Initial<T>;
+class LoadingState<T> extends StateValue<T> {
+  @override
+  List<Object?> get props => [];
+}
 
-  const factory StateValue.loading() = _Loading;
+class LoadedState<T> extends StateValue<T> {
+  final T data;
 
-  const factory StateValue.success(final T data) = _Success<T>;
+  LoadedState(this.data);
 
-  const factory StateValue.failure(final Object error, StackTrace stackTrace) =
-      _Failure;
+  @override
+  List<Object?> get props => [data];
+}
 
-  bool get isInit => maybeWhen(initial: () => true, orElse: () => false);
+class ErrorState<T> extends StateValue<T> {
+  final Object error;
+  StackTrace? stackTrace;
 
-  bool get isLoading => maybeWhen(loading: () => true, orElse: () => false);
+  ErrorState({
+    required this.error,
+    this.stackTrace,
+  });
 
-  bool get isSuccess => maybeMap(success: (_) => true, orElse: () => false);
-
-  bool get isError => maybeWhen(failure: (_, __) => true, orElse: () => false);
-
-  T? get data => maybeWhen(success: (data) => data, orElse: () => null);
+  @override
+  List<Object?> get props => [error, stackTrace];
 }

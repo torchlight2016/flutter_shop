@@ -2,40 +2,48 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_shop/core/bloc/state_value.dart';
+import 'package:flutter_shop/core/result/api_result.dart';
 import 'package:flutter_shop/feature/book/domain/entities/searched_books.dart';
 import 'package:flutter_shop/feature/book/domain/usecases/search_books_usecase.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'book_bloc.freezed.dart';
 
 class BookBloc extends Bloc<BookEvent, StateValue<SearchedBooks>> {
   final SearchBooksUseCase searchBooksUseCase;
 
   BookBloc({
     required this.searchBooksUseCase,
-  }) : super(const StateValue.initial()) {
+  }) : super(InitialState()) {
     on<BookEvent>(onBookEvent);
   }
 
   Future<FutureOr<void>> onBookEvent(
       BookEvent event, Emitter<StateValue<SearchedBooks>> emit) async {
-    await event.map(searchBooks: (event) async {
-      final result = await searchBooksUseCase.execute(SearchBooksParam(
-          name: event.name, page: event.page, size: event.size));
-      result.when(success: (data) {
-        emit(StateValue.success(data));
-      }, failure: (e, st) {
-        emit(StateValue.failure(e, st));
-      });
-    });
+    switch (event) {
+      case SearchBooks(
+          name: final String name,
+          page: final int? page,
+          size: final int? size
+        ):
+        final result = await searchBooksUseCase
+            .execute(SearchBooksParam(name: name, page: page, size: size));
+        switch (result) {
+          case ApiSuccess<SearchedBooks>():
+            emit(LoadedState(result.value));
+            break;
+          case ApiFailure<SearchedBooks>():
+            emit(ErrorState(error: result.error));
+            break;
+        }
+        break;
+    }
   }
 }
 
-@freezed
-class BookEvent with _$BookEvent {
-  const factory BookEvent.searchBooks({
-    required String name,
-    int? page,
-    int? size,
-  }) = _SearchBooks;
+sealed class BookEvent {}
+
+final class SearchBooks extends BookEvent {
+  final String name;
+  int? page;
+  int? size;
+
+  SearchBooks({required this.name, this.page, this.size});
 }

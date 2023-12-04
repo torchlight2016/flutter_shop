@@ -8,26 +8,34 @@ part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc(super.initialState) {
-    on<AppEvent>((event, emit) async {
-      await event.when(changeSeedColor: (colorSeed, brightness) async {
-        emit(_SeedColorChanged(
-            colorSeed: colorSeed ?? state.colorSeed,
-            brightness: brightness ?? state.brightness));
-      });
+    on<AppEvent>((event, emit) {
+      switch (event) {
+        case ChangeSeedColor(
+            colorSeed: final ColorSeed? colorSeed,
+            brightness: final Brightness? brightness
+          ):
+          emit(AppState(
+              colorSeed: colorSeed ?? state.colorSeed,
+              brightness: brightness ?? state.brightness));
+          break;
+      }
     });
   }
 }
 
-@freezed
-class AppEvent with _$AppEvent {
-  const factory AppEvent.changeSeedColor(
-      {ColorSeed? colorSeed, Brightness? brightness}) = _ChangeSeedColor;
+sealed class AppEvent {}
+
+final class ChangeSeedColor extends AppEvent {
+  ColorSeed? colorSeed;
+  Brightness? brightness;
+
+  ChangeSeedColor({this.colorSeed, this.brightness});
 }
 
 @freezed
 class AppState with _$AppState {
-  const factory AppState.seedColorChanged({
+  const factory AppState({
     required ColorSeed colorSeed,
     required Brightness brightness,
-  }) = _SeedColorChanged;
+  }) = _AppState;
 }

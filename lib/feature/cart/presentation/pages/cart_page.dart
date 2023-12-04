@@ -15,8 +15,7 @@ class CartPage extends StatelessWidget {
         title: const Text('Cart'),
       ),
       body: BlocProvider(
-        create: (context) =>
-            sl<CartBloc>()..add(const CartEvent.getBooksFromCart()),
+        create: (context) => sl<CartBloc>()..add(GetBooksFromCart()),
         child: BlocBuilder<CartBloc, List<Book>>(
           builder: (context, state) {
             return CartListView(books: state);

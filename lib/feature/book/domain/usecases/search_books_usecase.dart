@@ -1,10 +1,10 @@
-import 'package:flutter_shop/core/result/result.dart';
+import 'package:flutter_shop/core/result/api_result.dart';
 import 'package:flutter_shop/core/usecase/usecase.dart';
 import 'package:flutter_shop/feature/book/domain/entities/searched_books.dart';
 import 'package:flutter_shop/feature/book/domain/repositories/book_repository.dart';
 
 class SearchBooksUseCase
-    extends UseCase<Result<SearchedBooks>, SearchBooksParam> {
+    extends UseCase<ApiResult<SearchedBooks>, SearchBooksParam> {
   final BookRepository bookRepository;
 
   SearchBooksUseCase({
@@ -12,7 +12,7 @@ class SearchBooksUseCase
   });
 
   @override
-  Future<Result<SearchedBooks>> execute(SearchBooksParam param) {
+  Future<ApiResult<SearchedBooks>> execute(SearchBooksParam param) {
     return bookRepository.searchBooks(
       name: param.name,
       page: param.page,

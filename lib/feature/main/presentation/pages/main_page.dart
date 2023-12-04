@@ -26,13 +26,13 @@ class MainPage extends StatelessWidget {
           BrightnessButton(
             handleBrightnessChange: (brightness) => context
                 .read<AppBloc>()
-                .add(AppEvent.changeSeedColor(brightness: brightness)),
+                .add(ChangeSeedColor(brightness: brightness)),
           ),
           ColorSeedButton(
               handleColorSelect: (colorSeed) => {
                     context
                         .read<AppBloc>()
-                        .add(AppEvent.changeSeedColor(colorSeed: colorSeed))
+                        .add(ChangeSeedColor(colorSeed: colorSeed))
                   },
               colorSelected: context.read<AppBloc>().state.colorSeed)
         ],

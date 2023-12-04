@@ -10,7 +10,7 @@ class BookShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AppBloc(const AppState.seedColorChanged(
+      create: (context) => AppBloc(const AppState(
         colorSeed: ColorSeed.yellow,
         brightness: Brightness.light,
       )),

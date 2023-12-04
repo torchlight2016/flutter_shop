@@ -1,6 +1,6 @@
-import 'package:flutter_shop/core/result/result.dart';
+import 'package:flutter_shop/core/result/api_result.dart';
 
 abstract class BookKeywordsRepository {
-  Future<Result<List<String>>> getBookKeywords();
-  Future<Result<List<String>>> addBookKeyword(String keyword);
+  Future<ApiResult<List<String>>> getBookKeywords();
+  Future<ApiResult<List<String>>> addBookKeyword(String keyword);
 }

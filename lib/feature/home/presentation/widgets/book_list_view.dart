@@ -15,7 +15,7 @@ class BookListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {
-        context.read<HomeBloc>().add(const HomeEvent.searchBooks(name: "프로그램"));
+        context.read<HomeBloc>().add(SearchBooks(name: "프로그램"));
       },
       child: ListView.builder(
           itemBuilder: (context, index) {

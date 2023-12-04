@@ -88,22 +88,22 @@ class _$MainEventCopyWithImpl<$Res, $Val extends MainEvent>
 }
 
 /// @nodoc
-abstract class _$$_ChangeSeedColorCopyWith<$Res>
+abstract class _$$ChangeSeedColorImplCopyWith<$Res>
     implements $MainEventCopyWith<$Res> {
-  factory _$$_ChangeSeedColorCopyWith(
-          _$_ChangeSeedColor value, $Res Function(_$_ChangeSeedColor) then) =
-      __$$_ChangeSeedColorCopyWithImpl<$Res>;
+  factory _$$ChangeSeedColorImplCopyWith(_$ChangeSeedColorImpl value,
+          $Res Function(_$ChangeSeedColorImpl) then) =
+      __$$ChangeSeedColorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ColorSeed colorSeed});
 }
 
 /// @nodoc
-class __$$_ChangeSeedColorCopyWithImpl<$Res>
-    extends _$MainEventCopyWithImpl<$Res, _$_ChangeSeedColor>
-    implements _$$_ChangeSeedColorCopyWith<$Res> {
-  __$$_ChangeSeedColorCopyWithImpl(
-      _$_ChangeSeedColor _value, $Res Function(_$_ChangeSeedColor) _then)
+class __$$ChangeSeedColorImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$ChangeSeedColorImpl>
+    implements _$$ChangeSeedColorImplCopyWith<$Res> {
+  __$$ChangeSeedColorImplCopyWithImpl(
+      _$ChangeSeedColorImpl _value, $Res Function(_$ChangeSeedColorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_ChangeSeedColorCopyWithImpl<$Res>
   $Res call({
     Object? colorSeed = null,
   }) {
-    return _then(_$_ChangeSeedColor(
+    return _then(_$ChangeSeedColorImpl(
       colorSeed: null == colorSeed
           ? _value.colorSeed
           : colorSeed // ignore: cast_nullable_to_non_nullable
@@ -122,8 +122,8 @@ class __$$_ChangeSeedColorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeSeedColor implements _ChangeSeedColor {
-  const _$_ChangeSeedColor({required this.colorSeed});
+class _$ChangeSeedColorImpl implements _ChangeSeedColor {
+  const _$ChangeSeedColorImpl({required this.colorSeed});
 
   @override
   final ColorSeed colorSeed;
@@ -137,7 +137,7 @@ class _$_ChangeSeedColor implements _ChangeSeedColor {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeSeedColor &&
+            other is _$ChangeSeedColorImpl &&
             (identical(other.colorSeed, colorSeed) ||
                 other.colorSeed == colorSeed));
   }
@@ -148,8 +148,9 @@ class _$_ChangeSeedColor implements _ChangeSeedColor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeSeedColorCopyWith<_$_ChangeSeedColor> get copyWith =>
-      __$$_ChangeSeedColorCopyWithImpl<_$_ChangeSeedColor>(this, _$identity);
+  _$$ChangeSeedColorImplCopyWith<_$ChangeSeedColorImpl> get copyWith =>
+      __$$ChangeSeedColorImplCopyWithImpl<_$ChangeSeedColorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -210,13 +211,13 @@ class _$_ChangeSeedColor implements _ChangeSeedColor {
 
 abstract class _ChangeSeedColor implements MainEvent {
   const factory _ChangeSeedColor({required final ColorSeed colorSeed}) =
-      _$_ChangeSeedColor;
+      _$ChangeSeedColorImpl;
 
   @override
   ColorSeed get colorSeed;
   @override
   @JsonKey(ignore: true)
-  _$$_ChangeSeedColorCopyWith<_$_ChangeSeedColor> get copyWith =>
+  _$$ChangeSeedColorImplCopyWith<_$ChangeSeedColorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -280,24 +281,25 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$MainStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$MainStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -307,7 +309,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -377,24 +379,24 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements MainState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_SeedColorChangedCopyWith<$Res> {
-  factory _$$_SeedColorChangedCopyWith(
-          _$_SeedColorChanged value, $Res Function(_$_SeedColorChanged) then) =
-      __$$_SeedColorChangedCopyWithImpl<$Res>;
+abstract class _$$SeedColorChangedImplCopyWith<$Res> {
+  factory _$$SeedColorChangedImplCopyWith(_$SeedColorChangedImpl value,
+          $Res Function(_$SeedColorChangedImpl) then) =
+      __$$SeedColorChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ColorSeed colorSeed});
 }
 
 /// @nodoc
-class __$$_SeedColorChangedCopyWithImpl<$Res>
-    extends _$MainStateCopyWithImpl<$Res, _$_SeedColorChanged>
-    implements _$$_SeedColorChangedCopyWith<$Res> {
-  __$$_SeedColorChangedCopyWithImpl(
-      _$_SeedColorChanged _value, $Res Function(_$_SeedColorChanged) _then)
+class __$$SeedColorChangedImplCopyWithImpl<$Res>
+    extends _$MainStateCopyWithImpl<$Res, _$SeedColorChangedImpl>
+    implements _$$SeedColorChangedImplCopyWith<$Res> {
+  __$$SeedColorChangedImplCopyWithImpl(_$SeedColorChangedImpl _value,
+      $Res Function(_$SeedColorChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -402,7 +404,7 @@ class __$$_SeedColorChangedCopyWithImpl<$Res>
   $Res call({
     Object? colorSeed = null,
   }) {
-    return _then(_$_SeedColorChanged(
+    return _then(_$SeedColorChangedImpl(
       null == colorSeed
           ? _value.colorSeed
           : colorSeed // ignore: cast_nullable_to_non_nullable
@@ -413,8 +415,8 @@ class __$$_SeedColorChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SeedColorChanged implements _SeedColorChanged {
-  const _$_SeedColorChanged(this.colorSeed);
+class _$SeedColorChangedImpl implements _SeedColorChanged {
+  const _$SeedColorChangedImpl(this.colorSeed);
 
   @override
   final ColorSeed colorSeed;
@@ -428,7 +430,7 @@ class _$_SeedColorChanged implements _SeedColorChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SeedColorChanged &&
+            other is _$SeedColorChangedImpl &&
             (identical(other.colorSeed, colorSeed) ||
                 other.colorSeed == colorSeed));
   }
@@ -439,8 +441,9 @@ class _$_SeedColorChanged implements _SeedColorChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SeedColorChangedCopyWith<_$_SeedColorChanged> get copyWith =>
-      __$$_SeedColorChangedCopyWithImpl<_$_SeedColorChanged>(this, _$identity);
+  _$$SeedColorChangedImplCopyWith<_$SeedColorChangedImpl> get copyWith =>
+      __$$SeedColorChangedImplCopyWithImpl<_$SeedColorChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -507,10 +510,10 @@ class _$_SeedColorChanged implements _SeedColorChanged {
 
 abstract class _SeedColorChanged implements MainState {
   const factory _SeedColorChanged(final ColorSeed colorSeed) =
-      _$_SeedColorChanged;
+      _$SeedColorChangedImpl;
 
   ColorSeed get colorSeed;
   @JsonKey(ignore: true)
-  _$$_SeedColorChangedCopyWith<_$_SeedColorChanged> get copyWith =>
+  _$$SeedColorChangedImplCopyWith<_$SeedColorChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
